@@ -2,17 +2,10 @@
 
 Welcome to the Scrabble Trainer Chatbot! This app is designed to help users prepare for your Scrabble matches by transforming your sentences into fun, resampled versions. Each word in your sentence is replaced by another word that starts with the same letter and is of the same length. The twist? The replacements are random, so you get a different result each time!
 
-<video id="demoVideo" width="600" controls>
+<video width="600" controls>
   <source src="data/video.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-
-<script>
-  document.addEventListener('DOMContentLoaded', (event) => {
-    var video = document.getElementById('demoVideo');
-    video.playbackRate = 2.0;
-  });
-</script>
 
 ## How It Works
 
