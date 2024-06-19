@@ -7,6 +7,9 @@ Welcome to the Scrabble Trainer Chatbot! This app is designed to help users prep
   Your browser does not support the video tag.
 </video>
 
+Watch the video to see the app in action:
+`data/video.mp4`
+
 ## How It Works
 
 ### The Main Functions
