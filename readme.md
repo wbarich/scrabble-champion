@@ -20,11 +20,11 @@ Let's break down the core functions that make this magic happen:
 
 2. **test_input_validity()**: Basic check to test that their are no digits in the sentence that the user submitted.
 
-2. **resample_word(word_list, input_word)**: This function takes an input word and resamples it from the word list. It filters words that start with the same letter and have the same length as the input word. If no matching word is found, it returns the original word. Otherwise, it randomly selects a word from the filtered list. To ensure that the response is speedy, `python's` list comprehension syntax is used.
+3. **resample_word(word_list, input_word)**: This function takes an input word and resamples it from the word list. It filters words that start with the same letter and have the same length as the input word. If no matching word is found, it returns the original word. Otherwise, it randomly selects a word from the filtered list. To ensure that the response is speedy, `python's` list comprehension syntax is used.
 
-3. **split_input_sentence(input_sentence)**: This function splits the input sentence into individual words based on spaces.
+4. **split_input_sentence(input_sentence)**: This function splits the input sentence into individual words based on spaces.
 
-4. **resample_sentence(input_sentence, word_list)**: This function resamples each word in the input sentence using the `resample_word` function and joins the resampled words back into a sentence.
+5. **resample_sentence(input_sentence, word_list)**: This function resamples each word in the input sentence using the `resample_word` function and joins the resampled words back into a sentence.
 
 ### The Streamlit App
 
@@ -44,6 +44,7 @@ Streamlit is a powerful tool that allows us to create interactive web applicatio
 
 1. Some of the words in the provided data are not **recognizable english words** (to me). This list should be refined before being used for Scrabble. Refining the set of words to recognizable english words was not a requirement specified in the assignment.
 2. More data quality tests should be incorporated for the solution to be used as a scrabble assistant. For example, in the current state non-compliant Scrabble words may be submitted by the user (contractions, propper nouns etc.). 
+3. More error handling should be incorporated to ensure the program does not fail. In the current implementation there is a try-catch block around the entire application to avoid crashsing after the user enters an unexpected input, like white space. 
 
 ## Setup
 

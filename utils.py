@@ -58,13 +58,16 @@ def resample_sentence(input_sentence, word_list):
     """
     Resample the input sentence by resampling each word.
     """
-    #only continue if the user's input is valid (no digits in the words)
-    if test_input_validity(input_sentence):
-        words = split_input_sentence(input_sentence)
-        resampled_words = [resample_word(word_list, word) for word in words]
-        return " ".join(resampled_words)
-    else:
-        return "Invalid input. Please try again."
+    try:
+        #only continue if the user's input is valid (no digits in the words)
+        if test_input_validity(input_sentence):
+            words = split_input_sentence(input_sentence)
+            resampled_words = [resample_word(word_list, word) for word in words]
+            return " ".join(resampled_words)
+        else:
+            return "Invalid input. Please try again."
+    except:
+        return "An unhandled exception occured."
 
 if __name__ == "__main__":
     word_list = retrieve_word_list()
