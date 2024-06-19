@@ -97,7 +97,7 @@ Make sure that you have navigated to the folder where the scripts are in the com
 C:\Users\wrich\repos\scrabble-champion\
 ```
 
-Then you can run the code by entering python `utils.py`.
+Then you can run the code by entering `python utils.py`.
 
 ### 2. As a Streamlit App
 You can run the code as a Streamlit App.
