@@ -54,13 +54,13 @@ def test_input_validity(input_sentence):
             return False
     return True
 
-def resample_sentance(input_sentance, word_list):
+def resample_sentence(input_sentence, word_list):
     """
-    Resample the input sentance by resampling each word.
+    Resample the input sentence by resampling each word.
     """
     #only continue if the user's input is valid (no digits in the words)
-    if test_input_validity(input_sentance):
-        words = split_input_sentence(input_sentance)
+    if test_input_validity(input_sentence):
+        words = split_input_sentence(input_sentence)
         resampled_words = [resample_word(word_list, word) for word in words]
         return " ".join(resampled_words)
     else:
@@ -70,17 +70,17 @@ if __name__ == "__main__":
     word_list = retrieve_word_list()
 
     test_case = "lightly fried fish are delicious"
-    resampled_sentance = resample_sentance(test_case, word_list)
+    resampled_sentence = resample_sentence(test_case, word_list)
 
     print(f"Original:  {test_case}")
-    print(f"Resampled: {resampled_sentance}")
+    print(f"Resampled: {resampled_sentence}")
 
     test_case = "zygomaticosphenoidalis are really nice"
-    resampled_sentance = resample_sentance(test_case, word_list)
+    resampled_sentence = resample_sentence(test_case, word_list)
 
     print(f"Original:  {test_case}")
-    print(f"Resampled: {resampled_sentance}")
+    print(f"Resampled: {resampled_sentence}")
 
-    input_sentance = input("Enter a sentance: ")
-    response = resample_sentance(input_sentance, word_list)
-    print(f"Resampled sentance: {response}")
+    input_sentence = input("Enter a sentence: ")
+    response = resample_sentence(input_sentence, word_list)
+    print(f"Resampled sentence: {response}")

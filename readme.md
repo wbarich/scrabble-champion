@@ -22,6 +22,8 @@ Let's break down the core functions that make this magic happen:
 
 1. **retrieve_word_list()**: This function reads a list of English words from a file and cleans it up by converting all words to lowercase. This word list is the pool from which I draw replacements.
 
+2. **test_input_validity()**: Basic check to test that their are no digits in the sentence that the user submitted.
+
 2. **resample_word(word_list, input_word)**: This function takes an input word and resamples it from the word list. It filters words that start with the same letter and have the same length as the input word. If no matching word is found, it returns the original word. Otherwise, it randomly selects a word from the filtered list. To ensure that the response is speedy, `python's` list comprehension syntax is used.
 
 3. **split_input_sentence(input_sentence)**: This function splits the input sentence into individual words based on spaces.
@@ -51,11 +53,13 @@ Streamlit is a powerful tool that allows us to create interactive web applicatio
 
 To get started with the Scrabble Trainer Chatbot, you'll need to set up your environment using Poetry. Poetry is a tool for dependency management and packaging in Python. Here's how to install Poetry and set up the environment using the provided `pyproject.toml` file in the repository.
 
+**Thsese scripts have only been tested with python 3.11.1 and Windows.**
+
 ### Install Poetry
 
 1. **Install Poetry**: Open your terminal (Command Prompt or PowerShell) and run the following command to install Poetry:
    ```powershell
-   (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
+   curl -sSL https://install.python-poetry.org | python -
     ```
 
 2. Add Poetry to Path: Add Poetry to your PATH by following the instructions provided after the installation completes. This typically involves adding Poetry's install location to the PATH environment variable. You can do this through the System Properties menu:

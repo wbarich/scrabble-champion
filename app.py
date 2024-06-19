@@ -1,6 +1,6 @@
 import streamlit as st
 
-from utils import retrieve_word_list, resample_sentance
+from utils import retrieve_word_list, resample_sentence
 
 # Streamlit app
 def main():
@@ -17,7 +17,7 @@ def main():
     user_input = st.chat_input("Your sentence:")
 
     if user_input:
-        resampled_sentence = resample_sentance(user_input, word_list)
+        resampled_sentence = resample_sentence(user_input, word_list)
 
         # Add user input and bot response to chat history
         st.session_state.history.append(("user", user_input))
