@@ -2,6 +2,18 @@
 
 Welcome to the Scrabble Trainer Chatbot! This app is designed to help users prepare for your Scrabble matches by transforming your sentences into fun, resampled versions. Each word in your sentence is replaced by another word that starts with the same letter and is of the same length. The twist? The replacements are random, so you get a different result each time!
 
+<video id="demoVideo" width="600" controls>
+  <source src="data/video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    var video = document.getElementById('demoVideo');
+    video.playbackRate = 2.0;
+  });
+</script>
+
 ## How It Works
 
 ### The Main Functions
@@ -10,7 +22,7 @@ Let's break down the core functions that make this magic happen:
 
 1. **retrieve_word_list()**: This function reads a list of English words from a file and cleans it up by converting all words to lowercase. This word list is the pool from which I draw replacements.
 
-2. **resample_word(word_list, input_word)**: This function takes an input word and resamples it from the word list. It filters words that start with the same letter and have the same length as the input word. If no matching word is found, it returns the original word. Otherwise, it randomly selects a word from the filtered list.
+2. **resample_word(word_list, input_word)**: This function takes an input word and resamples it from the word list. It filters words that start with the same letter and have the same length as the input word. If no matching word is found, it returns the original word. Otherwise, it randomly selects a word from the filtered list. To ensure that the response is speedy, `python's` list comprehension syntax is used.
 
 3. **split_input_sentence(input_sentence)**: This function splits the input sentence into individual words based on spaces.
 
@@ -32,8 +44,8 @@ Streamlit is a powerful tool that allows us to create interactive web applicatio
 
 ## Limitations & Improvements
 
-1. Some of the words in the provided data are not **recognizable english words** (to me). This list should be refined before being used for Scrabble!
-2. Some error handling should be used to make sure that the solution is robust. For example, the program will fail if the user submits '1234'.
+1. Some of the words in the provided data are not **recognizable english words** (to me). This list should be refined before being used for Scrabble. Refining the set of words to recognizable english words was not a requirement specified in the assignment.
+2. More data quality tests should be incorporated for the solution to be used as a scrabble assistant. For example, in the current state non-compliant Scrabble words may be submitted by the user (contractions, propper nouns etc.). 
 
 ## Setup
 
@@ -58,8 +70,8 @@ Clone the Repository: If you haven't already, clone the repository containing th
 
 ```powershell
 #Copy code
-git clone <your-repo-url>
-cd <your-repo-name>
+git clone https://github.com/wbarich/scrabble-champion.git
+cd scrabble-champion
 ```
 
 Install Dependencies: Use Poetry to install the dependencies specified in the pyproject.toml file:

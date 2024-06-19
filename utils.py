@@ -4,7 +4,7 @@ def retrieve_word_list():
     """
     Read in the word list from the file.
     """
-    word_list_path = "../data/words_alpha.txt"
+    word_list_path = "data/words_alpha.txt"
     with open(word_list_path, "r") as f:
         word_list = f.readlines()
 
@@ -29,6 +29,9 @@ def resample_word(word_list, input_word):
     if len(filtered_set) == 0:
         return input_word
     
+    # if there is only 1 word in the filtered_set and it is the same as the input word
+    # it is not a problem because we should return the input word in that case
+    
     #else sample a word from the remaining set
     return random.choice(filtered_set)
     
@@ -40,13 +43,28 @@ def split_input_sentence(input_sentence):
     """
     return input_sentence.split(" ")
 
+def test_input_validity(input_sentence):
+    """
+    Check that the user input is valid.
+    No numbers may be submitted in any of the input words.
+    """
+    words = split_input_sentence(input_sentence)
+    for word in words:
+        if any(char.isdigit() for char in word):
+            return False
+    return True
+
 def resample_sentance(input_sentance, word_list):
     """
     Resample the input sentance by resampling each word.
     """
-    words = split_input_sentence(input_sentance)
-    resampled_words = [resample_word(word_list, word) for word in words]
-    return " ".join(resampled_words)
+    #only continue if the user's input is valid (no digits in the words)
+    if test_input_validity(input_sentance):
+        words = split_input_sentence(input_sentance)
+        resampled_words = [resample_word(word_list, word) for word in words]
+        return " ".join(resampled_words)
+    else:
+        return "Invalid input. Please try again."
 
 if __name__ == "__main__":
     word_list = retrieve_word_list()
@@ -63,5 +81,6 @@ if __name__ == "__main__":
     print(f"Original:  {test_case}")
     print(f"Resampled: {resampled_sentance}")
 
-    input_word = input("Enter a word: ")
-    print(f"Resampled word: {resample_word(word_list, input_word)}")
+    input_sentance = input("Enter a sentance: ")
+    response = resample_sentance(input_sentance, word_list)
+    print(f"Resampled sentance: {response}")
