@@ -73,21 +73,18 @@ To get started with the Scrabble Trainer Chatbot, you'll need to set up your env
 Clone the Repository: If you haven't already, clone the repository containing the Scrabble Trainer Chatbot code and navigate into the project directory:
 
 ```powershell
-#Copy code
 git clone https://github.com/wbarich/scrabble-champion.git
 cd scrabble-champion
 ```
 
 Install Dependencies: Use Poetry to install the dependencies specified in the pyproject.toml file:
 ```powershell
-#Copy code
 poetry install
 ```
 
 Activate the Virtual Environment: Once the dependencies are installed, activate the virtual environment created by Poetry:
 
 ```powershell
-#Copy code
 poetry shell
 ```
 
